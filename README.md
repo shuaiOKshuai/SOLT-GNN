@@ -33,7 +33,7 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 
 - python subgraph_sample.py
 
-(2) Tail graph classification with five different seeds(0,1,2,3,4) for each dataset with hyper-parameter settings in our experiments:
+(2) Tail graph classification:
 
 - python main.py --dataset PTC  --alpha 0.3 --mu1 1.5 --mu2 1.5
 - python main.py --dataset PROTEINS  --alpha 0.15 --mu1 2 --mu2 2 
@@ -42,7 +42,7 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 - python main.py --dataset IMDBBINARY --alpha 0.15 --mu1 1 --mu2 1
 
 ### Note
-- We repeat the experiments for five times and average the results for report (with standard deviation). Note that, for the five runs, we employ seeds {0, 1, 2, 3, 4} for parameters initialization. 
+- We repeat the experiments for five times and average the results for report (with standard deviation). Note that, for the five runs, we employ seeds {0, 1, 2, 3, 4} for parameters initialization, respectively.
 - The change of experimental environment may result in performance fluctuation for both the baselines and our SOLT-GNN. To reproduce the results in the paper, please set the experimental environment as illustrated above as much as possible. The utilized parameter settings are illustrated in the python commands. Note that, for the possible case of SOLT-GNN performing a bit worse which originating from environment change, the readers can further tune the parameters, including $\mu_1$, $\mu_2$, $\alpha$ and $d_m$. In particular, for these four hyper-parameters, we recommend the authors to tune them in {0.1, 0.5, 1, 1.5, 2}, {0.1, 0.5, 1, 1.5, 2}, {0.05, 0.1, 0.15, 0.2, 0.25, 0.3}, {16, 32, 64, 128}, respectively.
 - To run the model on your own datasets, please refer to the following part for the dataset format.
 
