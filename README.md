@@ -57,6 +57,6 @@ Due to the different experimental environment, the experimental results will flu
 	@inproceedings{liu2022onsize,
 	  title={On Size-Oriented Long-Tailed Graph Classification of Graph Neural Networks},
 	  author={Liu, Zemin and Mao, Qiheng and Liu, Chenghao and Fang, Yuan and Sun, Jianling},
-	  booktitle={Proceedings of the Web Conference 2022},
+	  booktitle={Proceedings of the ACM Web Conference 2022},
 	  year={2022}
 	}
