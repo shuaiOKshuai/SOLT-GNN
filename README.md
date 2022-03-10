@@ -45,12 +45,13 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 - We repeat the experiments for five times and average the results for report (with standard deviation). Note that, for the five runs, we employ seeds {0, 1, 2, 3, 4} for parameters initialization, respectively.
 - The change of experimental environment may result in performance fluctuation for both the baselines and our SOLT-GNN. To reproduce the results in the paper, please set the experimental environment as illustrated above as much as possible. The utilized parameter settings are illustrated in the python commands. Note that, for the possible case of SOLT-GNN performing a bit worse which originating from environment change, the readers can further tune the parameters, including $\mu_1$, $\mu_2$, $\alpha$ and $d_m$. In particular, for these four hyper-parameters, we recommend the authors to tune them in {0.1, 0.5, 1, 1.5, 2}, {0.1, 0.5, 1, 1.5, 2}, {0.05, 0.1, 0.15, 0.2, 0.25, 0.3}, {16, 32, 64, 128}, respectively.
 - To run the model on your own datasets, please refer to the following part for the dataset format.
+- The implementation of SOLT-GNN is based on the official implementation of GIN (https://github.com/weihua916/powerful-gnns).
 
 
 Due to the different experimental environment, the experimental results will fluctuate when you use the codes. For reproducing our results in the paper, you need to tune the values of key hyper-parameters like $\mu_1,\mu_2, \alpha, d_m$,  in your experimental environment. The recommended search space of $\mu_1,\mu_2, \alpha, d_m$, are {0.1, 0.5, 1, 1.5, 2}, {0.1, 0.5, 1, 1.5, 2}, {0.05, 0.1, 0.15, 0.2, 0.25, 0.3} and {16, 32, 64, 128},  respectively. As the performance of the SOLT-GIN highly relates to GIN, so the tuning of hyper-parameters of GIN is encouraged. Please firstly fix the configuration of GIN before exploration of SOLT-GIN for efficiency.
 
-## 4. Note
-- The implementation of SOLT-GNN is based on the official implementation of GIN (https://github.com/weihua916/powerful-gnns).
+## 4. Dataset Format
+- the dataset format
 
 ## 5. Cite
 
