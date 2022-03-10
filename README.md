@@ -49,7 +49,9 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 
 
 ## 4. Dataset Format
-- the dataset format
+- The first line is the number of graphs contained in the dataset, followed by the respective data of each graph.
+- The first line of each graph data contains the number of nodes contained in the graph, marked as n, and the label of each graph. Next is n lines for the node information, the i-th row means the node information of i-th node in the graph.
+- The line of node information contains the node label, the number of neighbors, marked as m, then the m ids of m neighbors.
 
 ## 5. Cite
 
