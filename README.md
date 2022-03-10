@@ -43,7 +43,7 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 
 ### Note
 - We repeat the experiments for five times and average the results for report (with standard deviation). Note that, for the five runs, we employ seeds {0, 1, 2, 3, 4} for parameters initialization. 
-- The change of experimental environment may result in performance fluctuation for both the baselines and our SOLT-GNN. To reproduce the results in the paper, please set the experimental environment as illustrated above as much as possible. The utilized parameter settings are illustrated in the python commands. Note that, 
+- The change of experimental environment may result in performance fluctuation for both the baselines and our SOLT-GNN. To reproduce the results in the paper, please set the experimental environment as illustrated above as much as possible. The utilized parameter settings are illustrated in the python commands. Note that, for the possible case of SOLT-GNN performing a bit worse which arising from environment change, the readers can further tune the parameters, including \mu_1
 - To 
 
 
