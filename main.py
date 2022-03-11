@@ -291,18 +291,18 @@ def main():
                         help='Whether to learn the epsilon weighting for the center nodes. Does not affect training accuracy though.')
     parser.add_argument('--degree_as_tag', action="store_true",
                         help='let the input node features be the degree of nodes (heuristics for unlabeled graph)')
-    parser.add_argument('--alpha', type=float, default=0.5,
-                        help='weight of head graph classification loss')
-    parser.add_argument('--mu1', type=float, default=1.0,
-                        help='weight of node-level co-occurrence loss')
-    parser.add_argument('--mu2', type=float, default=1.0,
-                        help='weight of subgraph-level co-occurrence loss')
-    parser.add_argument('--lbd', type=float, default=1e-4,
-                        help='weight of dissimilarity regularization loss')
     parser.add_argument('--l2', type=float, default=5e-4,
                         help='the weight decay of adam optimizer')
+    parser.add_argument('--alpha', type=float, default=0.5,
+                        help='weight of head graph classification loss($\alpha$ in the paper)')
+    parser.add_argument('--mu1', type=float, default=1.0,
+                        help='weight of node-level co-occurrence loss($\mu_1$ in the paper)')
+    parser.add_argument('--mu2', type=float, default=1.0,
+                        help='weight of subgraph-level co-occurrence loss($\mu_2$ in the paper)')
+    parser.add_argument('--lbd', type=float, default=1e-4,
+                        help='weight of dissimilarity regularization loss($\lambda$ in the paper)')
     parser.add_argument('--dm', type=int, default=64,
-                        help='the dm dimension of pattern memory')
+                        help='the dm dimension of pattern memory($\d_m$ in the paper)')
     parser.add_argument('--n_n', type=int, default=1,
                         help='the number of node-level co-occurrence triplets per node at single epoch')
     parser.add_argument('--n_g', type=int, default=1,
