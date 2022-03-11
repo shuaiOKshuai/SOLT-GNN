@@ -49,9 +49,13 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 
 
 ## 4. Dataset Format
-- The first line is the number of graphs contained in the dataset, followed by the respective data of each graph.
-- The first line of each graph data contains the number of nodes contained in the graph, marked as n, and the label of each graph. Next is n lines for the node information, the i-th row means the node information of i-th node in the graph.
-- The line of node information contains the node label, the number of neighbors, marked as m, then the m ids of m neighbors.
+In order to run SOLT-GNN on your own datasets, here we provide the input data format for SOLT-GNN as follows.
+
+Each dataset XXX only contains one file, named as XXX.txt. Note that, in each dataset, we have a number of graphs. In particular, for each XXX.txt, 
+
+- The first line only has one column, which is the number of graphs contained in this dataset, and the following part of this XXX.txt file is the data for each graph.
+- In the data for each graph, the first line has two columns, which denote the number of nodes (marked as n) in this graph and the label of this graph, respectively. Following this line, there are n lines, with the i-th line corresponding to the information of node i in this graph. In each of these n lines (n nodes), the first column is the node label, the second column is the number of its neighbors (marked as m), and the following m columns correspond the indeces (ids) of its neighbors.
+
 
 ## 5. Cite
 
@@ -61,3 +65,6 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 	  booktitle={Proceedings of the ACM Web Conference 2022},
 	  year={2022}
 	}
+
+## 6. Contact
+If you have any questions for the data and code, please contact Qiheng Mao ().
