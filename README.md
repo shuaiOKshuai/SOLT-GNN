@@ -69,4 +69,4 @@ Each dataset XXX only contains one file, named as XXX.txt. Note that, in each da
 	}
 
 ## 6. Contact
-If you have any questions for the data and code, please contact Qiheng Mao (22021184@zju.edu.cn).
+If you have any questions on the code and data, please contact Qiheng Mao (22021184@zju.edu.cn).
