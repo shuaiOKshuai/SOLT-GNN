@@ -294,7 +294,7 @@ def main():
     parser.add_argument('--l2', type=float, default=5e-4,
                         help='the weight decay of adam optimizer')
     parser.add_argument('--alpha', type=float, default=0.5,
-                        help='weight of head graph classification loss(\alpha in the paper)')
+                        help='weight of head graph classification loss($\ alpha$ in the paper)')
     parser.add_argument('--mu1', type=float, default=1.0,
                         help='weight of node-level co-occurrence loss($\mu_1$ in the paper)')
     parser.add_argument('--mu2', type=float, default=1.0,
@@ -303,6 +303,8 @@ def main():
                         help='weight of dissimilarity regularization loss($\lambda $ in the paper)')
     parser.add_argument('--dm', type=int, default=64,
                         help='the dm dimension of pattern memory($d_m $ in the paper)')
+    parser.add_argument('--K', type=int, default=72,
+                        help='the dm number of head graphs($K $ in the paper)')
     parser.add_argument('--n_n', type=int, default=1,
                         help='the number of node-level co-occurrence triplets per node at single epoch')
     parser.add_argument('--n_g', type=int, default=1,
@@ -313,35 +315,30 @@ def main():
 
     #Base Hyper-parameter configuration
     if args.dataset == "PROTEINS":
-        partition_size = 50
         hidden_dim = 32
         batch_size = 32
         seed = 2022
         learn_eps = False
         l2 = 0
     elif args.dataset == "PTC": 
-        partition_size = 35
         hidden_dim = 32
         batch_size = 32
         seed = 0
         learn_eps = True
         l2 = 5e-4
     elif args.dataset == "IMDBBINARY": 
-        partition_size = 25
         hidden_dim = 64
         batch_size = 32
         seed = 2020
         learn_eps = True
         l2 = 5e-4
     elif args.dataset == "DD":
-        partition_size = 400
         hidden_dim = 32
         batch_size = 128
         seed = 2022
         learn_eps = False
         l2 = 0
     elif args.dataset == "FRANK":
-        partition_size = 22
         hidden_dim = 32
         batch_size = 128
         learn_eps = True
@@ -357,10 +354,15 @@ def main():
 
     gsamples = load_sample(args.dataset)
 
-
+    nodes = torch.zeros(len(graphs))
+    
     for i in range(len(graphs)):
-        if graphs[i].g.number_of_nodes() >= partition_size:
-            graphs[i].nodegroup += 1
+        nodes[i] = graphs[i].g.number_of_nodes()
+        
+    _, ind = torch.sort(nodes, descending=True)
+
+    for i in ind[:args.K]:
+        graphs[i].nodegroup += 1
 
     train_graphs, valid_graphs, test_graphs, train_samples = data_split(graphs, gsamples, args.valid_ratio, args.test_ratio, args.seed)
 
@@ -369,7 +371,7 @@ def main():
     for i in range(len(test_graphs)):
         cnt_node[test_graphs[i].nodegroup] += 1
 
-    print('The number of nodes:', end=' ')
+    print('The number of graphs in test set:', end=' ')
     print("Head: %f" % (cnt_node[1]), end=', ')
     print("Tail: %f" % (cnt_node[0]))
 
@@ -378,9 +380,7 @@ def main():
     test_record = torch.zeros(times)
     valid_record = torch.zeros(times)
     tail_record = torch.zeros(times)
-
     
-
     for seed in range(times):
 
         random.seed(seed)
