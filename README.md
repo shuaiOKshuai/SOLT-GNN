@@ -55,7 +55,7 @@ In order to run SOLT-GNN on your own datasets, here we provide the input data fo
 Each dataset XXX only contains one file, named as XXX.txt. Note that, in each dataset, we have a number of graphs. In particular, for each XXX.txt, 
 
 - The first line only has one column, which is the number of graphs (marked as N) contained in this dataset; and the following part of this XXX.txt file is the data of each graph, including a total of N graphs.
-- In the data of each graph, the first line has two columns, which denote the number of nodes (marked as n) in this graph and the label of this graph, respectively. Following this line, there are n lines, with the i-th line corresponding to the information of node i in this graph. In each of these n lines (n nodes), the first column is the node label, the second column is the number of its neighbors (marked as m), and the following m columns correspond to the indeces (ids) of its neighbors.
+- In the data of each graph, the first line has two columns, which denote the number of nodes (marked as n) in this graph and the label of this graph, respectively. Following this line, there are n lines, with the i-th line corresponding to the information of node i in this graph (index i starts from 0). In each of these n lines (n nodes), the first column is the node label, the second column is the number of its neighbors (marked as m), and the following m columns correspond to the indeces (ids) of its neighbors.
 - Therefore, each graph has n+1 lines.
 
 
