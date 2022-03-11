@@ -294,7 +294,7 @@ def main():
     parser.add_argument('--l2', type=float, default=5e-4,
                         help='the weight decay of adam optimizer')
     parser.add_argument('--alpha', type=float, default=0.5,
-                        help='weight of head graph classification loss($\alpha $ in the paper)')
+                        help=r'weight of head graph classification loss($\alpha $ in the paper)')
     parser.add_argument('--mu1', type=float, default=1.0,
                         help='weight of node-level co-occurrence loss($\mu_1$ in the paper)')
     parser.add_argument('--mu2', type=float, default=1.0,
