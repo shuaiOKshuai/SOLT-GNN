@@ -47,8 +47,8 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 - To run the model on your own datasets, please refer to the following part (4. Input Data Format) for the dataset format.
 - The implementation of SOLT-GNN is based on the official implementation of GIN (https://github.com/weihua916/powerful-gnns).
 - To tune the other hyper-parameters, please refer to main.py for more details. 
-  * In particular, for the number of head graphs (marked as K in the paper) for each dataset, which decides the division of the heads/tails, the readers can tune K to explore the effect of different head/tail divisions. 
-  * Parameters $n_n$ and $n_g$ are the number of triplets for node-level and subgraph-level we used in the training, respectively. Performance improvement might be achieved by appropriately increasing the training triplets.
+  * In particular, for the number of head graphs (marked as K in the paper) in each dataset, which decides the division of the heads/tails, the readers can tune K to explore the effect of different head/tail divisions. 
+  * Parameters $n_n$ and $n_g$ are the number of triplets for node- and subgraph-levels we used in the training, respectively. Performance improvement might be achieved by appropriately increasing the training triplets.
 
 
 ## 4. Input Data Format
@@ -58,7 +58,7 @@ Each dataset XXX only contains one file, named as XXX.txt. Note that, in each da
 
 - The first line only has one column, which is the number of graphs (marked as N) contained in this dataset; and the following part of this XXX.txt file is the data of each graph, including a total of N graphs.
 - In the data of each graph, the first line has two columns, which denote the number of nodes (marked as n) in this graph and the label of this graph, respectively. Following this line, there are n lines, with the i-th line corresponding to the information of node i in this graph (index i starts from 0). In each of these n lines (n nodes), the first column is the node label, the second column is the number of its neighbors (marked as m), and the following m columns correspond to the indeces (ids) of its neighbors.
-- Therefore, each graph has n+1 lines.
+  * Therefore, each graph has n+1 lines.
 
 
 ## 5. Cite
