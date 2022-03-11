@@ -44,17 +44,18 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 ### Note
 - We repeat the experiments for five times and average the results for report (with standard deviation). Note that, for the five runs, we employ seeds {0, 1, 2, 3, 4} for parameters initialization, respectively.
 - The change of experimental environment may result in performance fluctuation for both the baselines and our SOLT-GNN. To reproduce the results in the paper, please set the experimental environment as illustrated above as much as possible. The utilized parameter settings are illustrated in the python commands. Note that, for the possible case of SOLT-GNN performing a bit worse which originates from environment change, the readers can further tune the parameters, including $\mu_1$, $\mu_2$, $\alpha$ and $d_m$. In particular, for these four hyper-parameters, we recommend the authors to tune them in {0.1, 0.5, 1, 1.5, 2}, {0.1, 0.5, 1, 1.5, 2}, {0.05, 0.1, 0.15, 0.2, 0.25, 0.3}, {16, 32, 64, 128}, respectively. As the performance of SOLT-GIN highly relates to GIN, so the tuning of hyper-parameters for GIN is encouraged. When tuning the hyper-parameters for SOLT-GNN, please first fix the configuration of GIN for efficiency.
-- To run the model on your own datasets, please refer to the following part (Dataset Format) for the dataset format.
+- To run the model on your own datasets, please refer to the following part (Input Data Format) for the dataset format.
 - The implementation of SOLT-GNN is based on the official implementation of GIN (https://github.com/weihua916/powerful-gnns).
 
 
-## 4. Dataset Format
+## 4. Input Data Format
 In order to run SOLT-GNN on your own datasets, here we provide the input data format for SOLT-GNN as follows.
 
 Each dataset XXX only contains one file, named as XXX.txt. Note that, in each dataset, we have a number of graphs. In particular, for each XXX.txt, 
 
-- The first line only has one column, which is the number of graphs contained in this dataset, and the following part of this XXX.txt file is the data for each graph.
-- In the data for each graph, the first line has two columns, which denote the number of nodes (marked as n) in this graph and the label of this graph, respectively. Following this line, there are n lines, with the i-th line corresponding to the information of node i in this graph. In each of these n lines (n nodes), the first column is the node label, the second column is the number of its neighbors (marked as m), and the following m columns correspond the indeces (ids) of its neighbors.
+- The first line only has one column, which is the number of graphs contained in this dataset, and the following part of this XXX.txt file is the data of each graph.
+- In the data of each graph, the first line has two columns, which denote the number of nodes (marked as n) in this graph and the label of this graph, respectively. Following this line, there are n lines, with the i-th line corresponding to the information of node i in this graph. In each of these n lines (n nodes), the first column is the node label, the second column is the number of its neighbors (marked as m), and the following m columns correspond the indeces (ids) of its neighbors.
+- Therefore, in total, each graph has n+1 lines of data.
 
 
 ## 5. Cite
