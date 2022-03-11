@@ -7,7 +7,7 @@ We provide the code (in PyTorch) and datasets for our paper "[On Size-Oriented L
 The repository is organised as follows:
 
 - dataset/: the original data and sampled subgraphs of the five benchmark datasets.
-- main.py: the main entry of tail graph classificaiton for SOLT-GIN.
+- main.py: the main entry of tail graph classificaiton for SOLT-GIN. 
 - gin.py: base GIN model.
 - PatternMemory.py: the module of pattern memory.
 - utils.py: contains tool functions for loading the data and data split.
@@ -40,6 +40,8 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 - python main.py --dataset DD    --alpha 0.1 --mu1 0.5 --mu2 0.5
 - python main.py --dataset FRANK --alpha 0.1 --mu1 2 --mu2 0
 - python main.py --dataset IMDBBINARY --alpha 0.15 --mu1 1 --mu2 1
+
+(3) To tune the other hyper-parameters, please refer to main.py for more details.
 
 ### Note
 - We repeat the experiments for five times and average the results for report (with standard deviation). Note that, for the five runs, we employ seeds {0, 1, 2, 3, 4} for parameters initialization, respectively.
