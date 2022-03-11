@@ -35,18 +35,18 @@ Our experimental environment is Ubuntu 20.04.1 LTS (GNU/Linux 5.8.0-55-generic x
 
 (2) Tail graph classification:
 
-- python main.py --dataset PTC  --alpha 0.3 --mu1 1.5 --mu2 1.5
-- python main.py --dataset PROTEINS  --alpha 0.15 --mu1 2 --mu2 2 
-- python main.py --dataset DD    --alpha 0.1 --mu1 0.5 --mu2 0.5
-- python main.py --dataset FRANK --alpha 0.1 --mu1 2 --mu2 0
-- python main.py --dataset IMDBBINARY --alpha 0.15 --mu1 1 --mu2 1
+- python main.py --dataset PTC  --K 72 --alpha 0.3 --mu1 1.5 --mu2 1.5
+- python main.py --dataset PROTEINS --K 251 --alpha 0.15 --mu1 2 --mu2 2 
+- python main.py --dataset DD  --K 228  --alpha 0.1 --mu1 0.5 --mu2 0.5
+- python main.py --dataset FRANK --K 922 --alpha 0.1 --mu1 2 --mu2 0
+- python main.py --dataset IMDBBINARY --K 205 --alpha 0.15 --mu1 1 --mu2 1
 
 ### Note
 - We repeat the experiments for five times and average the results for report (with standard deviation). Note that, for the five runs, we employ seeds {0, 1, 2, 3, 4} for parameters initialization, respectively.
 - The change of experimental environment may result in performance fluctuation for both the baselines and our SOLT-GNN. To reproduce the results in the paper, please set the experimental environment as illustrated above as much as possible. The utilized parameter settings are illustrated in the python commands. Note that, for the possible case of SOLT-GNN performing a bit worse which originates from environment change, the readers can further tune the parameters, including $\mu_1$, $\mu_2$, $\alpha$ and $d_m$. In particular, for these four hyper-parameters, we recommend the authors to tune them in {0.1, 0.5, 1, 1.5, 2}, {0.1, 0.5, 1, 1.5, 2}, {0.05, 0.1, 0.15, 0.2, 0.25, 0.3}, {16, 32, 64, 128}, respectively. As the performance of SOLT-GIN highly relates to GIN, so the tuning of hyper-parameters for GIN is encouraged. When tuning the hyper-parameters for SOLT-GNN, please first fix the configuration of GIN for efficiency.
 - To run the model on your own datasets, please refer to the following part (Input Data Format) for the dataset format.
 - The implementation of SOLT-GNN is based on the official implementation of GIN (https://github.com/weihua916/powerful-gnns).
-- To tune the other hyper-parameters, please refer to main.py for more details. In particular, for the number of head graphs (marked as K in the paper) for each dataset, which decides the division of the heads/tails, we use *partition_size* in our implementations, the graphs with the number of node no less than partition_size are treated as head graphs, you can tune the value of partition_size of each dataset in main.py for exploring the effect of different head/tail divisions. The n_n and n_g decides the number of tuples in node-level and subgraph-level we used in the training process, respectively, appropriately increasing the training tuples may improve the performance in practice.
+- To tune the other hyper-parameters, please refer to main.py for more details. In particular, for the number of head graphs (marked as K in the paper) for each dataset, which decides the division of the heads/tails, you can tune the value of K of each dataset for exploring the effect of different head/tail divisions. The n_n and n_g decides the number of tuples in node-level and subgraph-level we used in the training process, respectively, appropriately increasing the training tuples may improve the performance in practice.
 
 
 ## 4. Input Data Format
