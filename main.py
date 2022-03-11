@@ -260,7 +260,7 @@ def main():
     parser = argparse.ArgumentParser(
         description='PyTorch graph convolutional neural net for whole-graph classification')
     parser.add_argument('--dataset', type=str, default="PTC",
-                        help='name of dataset (default: PROTEINS)')
+                        help='name of dataset (default: PTC)')
     parser.add_argument('--device', type=int, default=0,
                         help='which g pu to use if any (default: 0)')
     parser.add_argument('--batch_size', type=int, default=32,
